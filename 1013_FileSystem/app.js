@@ -1,8 +1,8 @@
 // Verschillende methodes om te werken met het file system
-var fs = require('fs');
-var msg = 'Hello World';
+const fs = require('fs');
+const msg = 'Hello World';
 
-// #1. Bbestand opslaan
+// #1. Bestand opslaan
 fs.writeFile('hello.txt', msg, function () {
 	console.log('bestand opgeslagen!')
 });

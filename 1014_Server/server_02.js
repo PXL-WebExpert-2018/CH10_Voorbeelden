@@ -1,17 +1,17 @@
 // Eenvoudige webserver, uitgebreid met opties voor correcte MIME-type
 
 // 0. initialisatie en variabelen
-var http = require('http'),
+const http = require('http'),
 	fs = require('fs'),
 	path = require('path'),
 	mime = require('mime'),
 	root = __dirname + '/public/'; // magic variable
 
 // 1. Maak de webserver
-var server = http.createServer(function (req, res) {
+let server = http.createServer(function (req, res) {
 	// 1a. Check of de root wordt opgevraagd.
-	var fileName = '';
-	var url = req.url;
+	let fileName = '';
+	let url = req.url;
 	if (url === '/') {
 		url = 'index.html'; // redirect als geen bestandsnaam is opgegeven
 	}
@@ -19,20 +19,20 @@ var server = http.createServer(function (req, res) {
 	console.log('Gevraagd bestand: ', path.basename(fileName));
 
 	// 1b. Check of bestand bestaat.
-	fs.exists(fileName, function (exists) {
-		if (exists) {
-			serveFile(fileName); // ja.
-		} else {
-			fileName = root + '404.html'; // nee
-			serve404(fileName);
-		}
-	});
+	fs.access(fileName, fs.F_OK, function (err) {
+        if (err) {
+            fileName = root + '404.html'; // nee
+            serveFile(fileName);
+        } else {
+            serveFile(fileName); // ja.
+        }
+    });
 
 	// 1c. Serveer gevraagde bestand.
 	function serveFile(requestFile) {
 		// 2. Maak een stream en server op basis van Events
 		res.writeHead(200, {'Content-Type': mime.getType(requestFile)});
-		var stream = fs.createReadStream(requestFile);
+		let stream = fs.createReadStream(requestFile);
 		stream.on('data', function (chunk) {
 			res.write(chunk);
 		});

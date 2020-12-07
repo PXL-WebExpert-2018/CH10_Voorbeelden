@@ -1,7 +1,7 @@
 //app.js - Array met personen maken en tonen in de console
-var Persoon = require('./Persoon');
-var colors = require('colors');
-var arrayPersonen = [];
+const Persoon = require('./Persoon');
+const colors = require('colors');
+const arrayPersonen = [];
 
 // array vullen met personen
 arrayPersonen.push(new Persoon('Peter', 'Kassenaar', 'info@kassenaar.com'));

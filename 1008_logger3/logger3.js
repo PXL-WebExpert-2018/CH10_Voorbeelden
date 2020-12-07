@@ -1,5 +1,5 @@
 // Require een andere module
-var time = require('./getTime');
+const time = require('./getTime');
 // Exporteer verschillende algemene logging-methoden
 module.exports = function () {
 	this.log = function (msg) {

@@ -1,7 +1,6 @@
 // de module path
-
-var path = require('path');
-var voorbeeldPath = ('Users/Luc Doumen/test.html');
+const path = require('path');
+const voorbeeldPath = ('Users/Luc Doumen/test.html');
 console.log('normalize: ', path.normalize(voorbeeldPath));
 console.log('resolve: ', path.resolve(voorbeeldPath));
 console.log('dirname: ', path.dirname(voorbeeldPath));

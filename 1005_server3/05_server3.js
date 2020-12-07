@@ -1,9 +1,9 @@
 // De http-headers van het inkomende request tonen in de console.
-var http = require('http');
-var server = http.createServer(function (request, response) {
+const http = require('http');
+let server = http.createServer(function (request, response) {
 	console.log(request.headers);
 	//console.log(request.headers['user-agent']); // één specifieke header tonen
-	var url = request.url;
+	let url = request.url;
 	response.writeHead(200, {'Content-Type':'text/html'});
 	response.write('<h1>De gevraagde URL: ' + url + '</h1>');
 	response.end();
