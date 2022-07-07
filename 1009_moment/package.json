@@ -4,7 +4,7 @@
   "description": "",
   "main": "app4.js",
   "dependencies": {
-    "moment": "^2.23.0"
+    "moment": "^2.29.4"
   },
   "devDependencies": {},
   "scripts": {
